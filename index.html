@@ -2,62 +2,30 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monaco an pyscript Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monaco an pyscript Example</title>
 
-  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="main.css"/>
 
-  <style>
-    /* Adjust the width of the editor container */
-    #editor-container {
-      flex: 1;
-      width: 50%;
-      /* Half of the available horizontal space */
-      height: 500px;
-    }
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    .container {
-      display: flex;
-      height: 100%;
-    }
-
-    .column {
-      flex: 1;
-      height: 100%;
-      overflow: auto;
-      border: 1px solid #ccc;
-    }
-
-    /* #renderPanel {
-      flex: 2;
-      padding: 10px;
-      box-sizing: border-box;
-    } */
-  </style>
-
-  <script></script>
 </head>
 
 <body>
-  <py-config src="pyconfig.toml"></py-config>
+<py-config src="pyconfig.toml"></py-config>
 
-  <div class="container">
-    <div class="column" id="editor-container"></div>
+<div class="container">
+    <div class="column" id ="editor-container"></div>
     <div class="column" id="renderPanel"></div>
-  </div>
+</div>
 
-  <script src="main.js"></script>
-  <py-script src="main.py"></py-script>
+<script src="main.js"></script>
+<py-script src="main.py"></py-script>
 
 </body>
 

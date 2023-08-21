@@ -1,0 +1,33 @@
+  /* Adjust the width of the editor container */
+    #editor-container {
+      flex: 1;
+      width: 50%;
+      /* Half of the available horizontal space */
+      height: 500px;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      height: 100%;
+    }
+
+    .column {
+      flex: 1;
+      height: 100%;
+      overflow: auto;
+      border: 1px solid #ccc;
+    }
+
+    /* #renderPanel {
+      flex: 2;
+      padding: 10px;
+      box-sizing: border-box;
+    } */
