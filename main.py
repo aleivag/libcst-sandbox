@@ -13,6 +13,8 @@ MODULE = None
 POS = {}
 IDDICT = {}
 
+RENDER_BODY_ELEMENT_ID = "render-body"
+
 
 def load():
     link_element = js.document.createElement('link')
@@ -45,11 +47,11 @@ def render_cst(module_text: str, **kwargs) -> None:
     MODULE = wrapper.module
     IDDICT = dict(node2id(MODULE, "$"))
 
-    render_module_object(MODULE, js.document.getElementById("renderPanel"))
+    render_module_object(MODULE, js.document.getElementById(RENDER_BODY_ELEMENT_ID))
 
 
 def get_node_id_by_pos(line, column) -> None:
-    render_pannel = js.document.getElementById("renderPanel")
+    render_pannel = js.document.getElementById(RENDER_BODY_ELEMENT_ID)
     node = find_closes_node_to_pos(line, column)
     return IDDICT[node]
 
