@@ -60,7 +60,7 @@ def get_node_id_by_pos(line, column) -> None:
 
 @singledispatch
 def node2id(node, id_prefix):
-    return [None]
+    yield from []
 
 
 @node2id.register(list)
@@ -74,7 +74,7 @@ def _(e: list, id_prefix: str):
 
 @node2id.register(cst.CSTNode)
 def _(node, id_prefix: str):
-    id_prefix = f"{id_prefix}(type={type(node).__name__})"
+    id_prefix = f"{id_prefix}({type(node).__name__})"
     yield node, id_prefix
 
     for attr in node.__dataclass_fields__:
