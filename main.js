@@ -1,5 +1,6 @@
 var editor; // the editor object, we will interact with this from python
 var EDITOR_CONTENT_KEY = "editor-content"
+var lastDecorations = null;
 
 
 function py_proxy_render_cst() {
@@ -17,12 +18,21 @@ function py_proxy_scroll_to_cst_node_by_pos(event) {
 
     node_id = pyscript.interpreter.globals.get("get_node_id_by_pos")(line, column)
     console.info(node_id, event)
-    document.getElementById(node_id).scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => document.getElementById(node_id).scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
     $(".hghlight").removeClass("hghlight")
     $(document.getElementById(node_id)).addClass("hghlight");
     document.getElementById('status-bar').innerText = `Line: ${line}, Column: ${column}, Word: ${word.length}`;
     document.getElementById('render-footer').innerText = `id: ${node_id}`;
 
+}
+
+function didCstClick(event, range) {
+    event.stopPropagation();
+    if (lastDecorations !== null) {
+        lastDecorations.clear();
+    }
+    lastDecorations = editor.createDecorationsCollection([{options:{className: "hghlight"}, range}]);
+    
 }
 
 
@@ -35,7 +45,7 @@ function load() {
         '    main()'
     ].join('\n')
 
-    require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs' } });
+    require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs' } });
 
     require(['vs/editor/editor.main'], function () {
         // Create the editor instance

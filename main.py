@@ -217,7 +217,12 @@ class DisplayNodes:
     def _(self, e, id_prefix: str):
         global MODULE, POS, IDDICT
         id_ = f"{id_prefix}.{type(e).__name__}"
-        yield f"<div class='cstnode' id='{IDDICT[e]}'>"
+        pos = POS.get(e)
+        onclick = ""
+        if pos:
+            jsRange = f"{{startLineNumber: {pos.start.line}, startColumn: {pos.start.column+1}, endLineNumber: {pos.end.line}, endColumn: {pos.end.column+1}}}"
+            onclick = f"onclick='didCstClick(arguments[0], {jsRange})'"
+        yield f"<div class='cstnode' id='{IDDICT[e]}' {onclick}>"
         yield "<span class='cstnodename'>"
         yield type(e).__name__
         yield "</span>"
