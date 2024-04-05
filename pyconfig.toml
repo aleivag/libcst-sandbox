@@ -1,1 +1,2 @@
 packages = ["libcst"]
+interpreter = "https://cdn.jsdelivr.net/pyodide/dev/full/pyodide.mjs"
