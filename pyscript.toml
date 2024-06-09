@@ -1,0 +1,5 @@
+name = "LibCST interactive playground"
+packages = ["libcst"]
+
+[js_modules.main]
+"https://cdn.jsdelivr.net/npm/monaco-editor@0.39.0/+esm" = "monaco"

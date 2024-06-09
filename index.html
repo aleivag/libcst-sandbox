@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <title>LibCST Interactive Playground</title>
+
+    <!-- Recommended meta tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>libCST sandbox</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.2/semantic.min.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.6.1/core.css">
+
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.6.1/core.js"></script>
 
     <link rel="stylesheet" href="main.css" />
-
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-
-    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/vscode-codicons@0.0.17/dist/codicon.min.css" rel="stylesheet">
 </head>
-
 <body>
-    <py-config src="pyconfig.toml"></py-config>
-
+    
     <div id="container">
 
         <div id="left-panel">
-            <div class="panel-header">Code
-                <!-- <div class="ui secondary pointing menu">
-                    <a class="item">File</a>
-                    <a class="item">Edit</a>
-                    <a class="item">View</a>
-                </div> -->
+            <div class="panel-header">
+                Code
             </div>
 
             <div id="editor"></div>
             <div id="status-bar">Line: 1, Column: 1, Word: 0</div>
         </div>
         <div id="right-panel">
-            <div id="render-header">CST</div>
+            <div id="render-header">CST <span id="libcst-version"></span></div>
             <div id="render-body">
                 <!-- Rendered content goes here -->
                 <p>This is the rendered content.</p>
@@ -43,8 +37,6 @@
             <div id="render-footer">Render Panel Footer</div>
         </div>
     </div>
-
-    <script src="main.js"></script>
-    <py-script src="main.py"></py-script>
+    <script type="py" src="./main.py" config="./pyscript.toml"></script>
 </body>
 </html>

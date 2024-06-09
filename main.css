@@ -49,3 +49,24 @@ body {
   border-top: 1px solid #ccc;
   text-align: center;
 }
+
+.cstnode {
+  display: inline;
+  transition: background-color 0.3s ease;
+}
+
+
+.hghlight {
+  top: -10px; /* Adjust the top position to create the effect of a border */
+  left: -10px; /* Adjust the left position to create the effect of a border */
+  background-color: rgba(173, 216, 230, 0.5); /* Semi-transparent light blue background */
+}
+
+
+.cstnodename {
+  color: rgb(17, 102, 119);
+}
+
+.pystr {color: rgb(170, 17, 17)}
+.pynone {color: rgb(119, 0, 136)}
+.pynum {color: rgb(17, 102, 68)}
